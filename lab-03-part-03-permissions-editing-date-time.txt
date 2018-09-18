@@ -17,6 +17,8 @@ We're going to be writing a shell script.  First, though... let's figure out wha
 
 What command did you use, and what was its output?
 ----------
+date
+Tue Sep 18 09:56:11 EDT 2018
 
 
 
@@ -25,6 +27,15 @@ What command did you use, and what was its output?
 
 What command did you use, and what was its output?
 ----------
+cal
+   September 2018
+Su Mo Tu We Th Fr Sa
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30
 
 
 
@@ -33,6 +44,8 @@ What command did you use, and what was its output?
 
 What commands did you use to do this?
 ----------
+cd ~
+pwd
 
 
 
@@ -41,7 +54,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+ touch copy_to_backup.sh
 
 
 ==========
@@ -49,6 +62,9 @@ What commands did you use to do this?
 
 What command did you use to find the permissions?
 ----------
+ls -alt copy_to_backup.sh 
+
+-rw-r--r--  1 Patrick  staff  0 Sep 18 10:03 copy_to_backup.sh
 
 
 
@@ -57,6 +73,9 @@ What command did you use to find the permissions?
 
 What commands did you use to do this?  What was the output?
 ----------
+chmod u+x copy_to_backup.sh 
+ls -alt copy_to_backup.sh
+-rwxr--r--  1 Patrick  staff  0 Sep 18 10:03 copy_to_backup.sh
 
 
 
@@ -67,7 +86,7 @@ $ ./copy_to_backup.sh
 
 What command did you use to try to execute the file?  What happens?
 ----------
-
+no output
 
 
 ==========
@@ -75,7 +94,7 @@ What command did you use to try to execute the file?  What happens?
 
 What command did you use to do this?
 ----------
-
+nano copy_to_backup.sh 
 
 
 ==========
@@ -89,13 +108,19 @@ Don't forget the first line of your shell script! It should begin with #!/bin/ba
 
 Write out the code in your file below...
 ----------
+#!/bin/bash
+
+mkdir backup
+cp *.txt backup
+echo I'm done backing up
+
 
 
 
 ==========
 10. Create a directory in your home called test
 ----------
-
+mkdir test
 
 
 ==========
@@ -103,7 +128,7 @@ Write out the code in your file below...
 
 What commands did you use to do this?
 ----------
-
+touch 1.txt 2.txt
 
 
 ==========
@@ -111,6 +136,11 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
+cd ~
+ mv copy_to_backup.sh test
+cd test
+ ls
+ 1.txt			2.txt			copy_to_backup.sh
 
 
 
@@ -119,7 +149,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+./copy_to_backup.sh 
 
 
 ==========
@@ -127,3 +157,6 @@ What commands did you use to do this?
 
 What commands did you use to do this?  Show the output.
 ----------
+ls -a
+.			1.txt			backup
+..			2.txt			copy_to_backup.sh
